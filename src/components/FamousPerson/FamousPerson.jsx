@@ -6,15 +6,9 @@ function FamousPerson(prop) {
     const [famousPersonKey, setFamousPersonKey] = useState('');
     
     useEffect(() => {
-        setFamousPersonKey(prop.key);
+        setFamousPersonKey(prop.id);
         setFamousPersonRole(prop.role);
         setFamousPersonName(prop.name);
-        let person = {
-            name: famousPersonName,
-            role: famousPersonRole,
-            key: famousPersonKey
-        }
-        console.log('PersonObj', person);
     }, []);
 
     return (
