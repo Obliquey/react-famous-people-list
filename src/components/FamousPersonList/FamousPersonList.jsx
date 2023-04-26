@@ -1,14 +1,17 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import FamousPerson from '../FamousPerson/FamousPerson';
+import FamousPersonForm from '../FamousPersonForm/FamousPersonForm'
 
 function FamousPersonList() {
     const[peopleArray, setPeopleArray] = useState([]);
 
     useEffect(() => {
         fetchPeople();
+        console.log('People Array:', peopleArray);
     }, []);
 
+    // function to get people from db. Will need to pass to FAMOUS-PERSON-FORM to be used after a new person is added.
     const fetchPeople = () => {
         axios({
           method: 'GET',
@@ -24,13 +27,15 @@ function FamousPersonList() {
     return (
         <>
             <header>
-                <FamousPersonForm />
+                <FamousPersonForm 
+                    fetch={fetchPeople}
+                />
             </header>
             <ul>
                 {
                     peopleArray.map(person => {
                         return <FamousPerson 
-                                    key={person.key}
+                                    key={person.id}
                                     name={person.name}
                                     role={person.role}
                                 />
