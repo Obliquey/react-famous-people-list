@@ -11,17 +11,17 @@ function FamousSection() {
     fetchPeople();
   }, []);
 
-  const fetchPeople = () => {
-    axios({
-      method: 'GET',
-      url: '/people',
-    }).then((response) => {
-      console.log("DBRes: ", response.data);
-      setPeopleArray(response.data);
-    }).catch((error) => {
-      console.log('Error retrieving db info', error)
-    })
-  }
+  // const fetchPeople = () => {
+  //   axios({
+  //     method: 'GET',
+  //     url: '/people',
+  //   }).then((response) => {
+  //     console.log("DBRes: ", response.data);
+  //     setPeopleArray(response.data);
+  //   }).catch((error) => {
+  //     console.log('Error retrieving db info', error)
+  //   })
+  // }
 
   const addPerson = (evt) => {
     evt.preventDefault();
